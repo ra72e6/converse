@@ -14,8 +14,8 @@ function Items(props) {
 
   const getData = () => {
     axios
-      .get('https://codingapple1.github.io/shop/data2.json')
-      .then(result => {
+      .get('https://raw.githubusercontent.com/ra72e6/converse/main/data2.json')
+      .then((result) => {
         if (result.data) props.shoes변경([...props.shoes, ...result.data]);
       })
       .catch(() => {
@@ -29,15 +29,15 @@ function Items(props) {
   };
 
   return (
-    <div className='container'>
-      <div className='row'>
+    <div className="container">
+      <div className="row">
         {props.shoes.map((a, i) => {
           return <Card shoes={a} i={i} key={i} />;
         })}
       </div>
 
       {!더보기 && (
-        <button className='btn btn-primary opacity' onClick={getDataAndHide}>
+        <button className="btn btn-primary opacity" onClick={getDataAndHide}>
           More
         </button>
       )}

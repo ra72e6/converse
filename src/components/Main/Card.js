@@ -27,7 +27,9 @@ function Card(props) {
     >
       <img
         src={
-          'https://codingapple1.github.io/shop/shoes' + (props.i + 1) + '.jpg'
+          'https://raw.githubusercontent.com/ra72e6/converse/main/shoes' +
+          (props.i + 1) +
+          '.jpg'
         }
         width="100%"
       />

@@ -45,7 +45,7 @@ function Detail(props) {
         id: 찾은상품.id,
         name: 찾은상품.title,
         quan: 1,
-        image: `https://codingapple1.github.io/shop/shoes${
+        image: `https://raw.githubusercontent.com/ra72e6/converse/main/shoes${
           찾은상품.id + 1
         }.jpg`,
         price: 찾은상품.price,
@@ -61,7 +61,9 @@ function Detail(props) {
   const getDataAndSetting = (el) => {
     if (props.shoes.length < 4) {
       axios
-        .get('https://codingapple1.github.io/shop/data2.json')
+        .get(
+          'https://raw.githubusercontent.com/ra72e6/converse/main/data2.json'
+        )
         .then((result) => {
           if (result.data) props.shoes변경([...props.shoes, ...result.data]);
         })
@@ -134,15 +136,15 @@ function Detail(props) {
   }, [recents]);
 
   return (
-    <div className='container'>
-      <div id='recentBox'>
-        <p className='title'>Recently Viewed</p>
+    <div className="container">
+      <div id="recentBox">
+        <p className="title">Recently Viewed</p>
         {recent.map((el, i) => {
           return (
-            <div className='imgWrapper opacity' key={el}>
+            <div className="imgWrapper opacity" key={el}>
               <img
-                className='img'
-                src={`https://codingapple1.github.io/shop/shoes${
+                className="img"
+                src={`https://raw.githubusercontent.com/ra72e6/converse/main/shoes${
                   Number(el) + 1
                 }.jpg`}
                 onClick={() => {
@@ -155,28 +157,28 @@ function Detail(props) {
       </div>
 
       <박스>
-        <제목 className='red'>Detail</제목>
+        <제목 className="red">Detail</제목>
       </박스>
 
       <div className={alert ? 'my-alert' : 'my-alert-hide'}>
         <p>재고가 얼마 남지 않았습니다.</p>
       </div>
 
-      <div className='row'>
-        <div className='col-md-6'>
+      <div className="row">
+        <div className="col-md-6">
           <img
-            src={`https://codingapple1.github.io/shop/shoes${
+            src={`https://raw.githubusercontent.com/ra72e6/converse/main/shoes${
               찾은상품.id + 1
             }.jpg`}
-            width='100%'
+            width="100%"
           />
         </div>
-        <div className='col-md-6 mt-4'>
-          <h4 className='pt-5'>{찾은상품.title}</h4>
+        <div className="col-md-6 mt-4">
+          <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{addComma(찾은상품.price)}원</p>
           <button
-            className='btn btn-primary opacity'
+            className="btn btn-primary opacity"
             onClick={() => {
               addItemAndGoCart();
             }}
@@ -185,17 +187,17 @@ function Detail(props) {
           </button>
           &nbsp;
           <button
-            className='btn btn-primary opacity'
+            className="btn btn-primary opacity"
             onClick={() => {
               history.push('/');
             }}
           >
             뒤로가기
           </button>
-          <Nav className='mt-5' variant='tabs' defaultActiveKey='/home'>
+          <Nav className="mt-5" variant="tabs" defaultActiveKey="/home">
             <Nav.Item>
               <Nav.Link
-                eventKey='link-0'
+                eventKey="link-0"
                 style={{ color: 'black' }}
                 onClick={() => {
                   스위치변경(false);
@@ -207,7 +209,7 @@ function Detail(props) {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link
-                eventKey='link-1'
+                eventKey="link-1"
                 style={{ color: 'black' }}
                 onClick={() => {
                   스위치변경(false);
@@ -218,7 +220,7 @@ function Detail(props) {
               </Nav.Link>
             </Nav.Item>
           </Nav>
-          <CSSTransition in={스위치} classNames='wow' timeout={500}>
+          <CSSTransition in={스위치} classNames="wow" timeout={500}>
             <TabContent 누른탭={누른탭} 스위치변경={스위치변경} />
           </CSSTransition>
         </div>

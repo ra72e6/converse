@@ -106,7 +106,9 @@ function Cart(props) {
   const goDetailPage = (id) => {
     if (props.shoes.length < 4) {
       axios
-        .get('https://codingapple1.github.io/shop/data2.json')
+        .get(
+          'https://raw.githubusercontent.com/ra72e6/converse/main/data2.json'
+        )
         .then((result) => {
           if (result.data) props.shoes변경([...props.shoes, ...result.data]);
         })
@@ -123,23 +125,23 @@ function Cart(props) {
   return (
     <>
       {state.reducer.length > 0 ? (
-        <div id='container'>
+        <div id="container">
           <Table responsive>
             <thead>
               <tr>
-                <th class='col-md-1'>
+                <th class="col-md-1">
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     checked={allChecked}
                     onChange={changeAllChecked}
                   />
                 </th>
-                <th class='col-md-1'>{/*상품이미지*/}</th>
-                <th class='col-md-2'>상품명</th>
-                <th class='col-md-2'>가격</th>
-                <th class='col-md-1'>수량</th>
-                <th class='col-md-1'>배송비</th>
-                <th class='col-md-1'>{/*삭제버튼*/}</th>
+                <th class="col-md-1">{/*상품이미지*/}</th>
+                <th class="col-md-2">상품명</th>
+                <th class="col-md-2">가격</th>
+                <th class="col-md-1">수량</th>
+                <th class="col-md-1">배송비</th>
+                <th class="col-md-1">{/*삭제버튼*/}</th>
               </tr>
             </thead>
             <tbody>
@@ -158,12 +160,12 @@ function Cart(props) {
                     </td>
                     <td>
                       <img
-                        className='itemImg opacity'
+                        className="itemImg opacity"
                         onClick={() => {
                           goDetailPage(a.id);
                         }}
                         src={a.image}
-                        width='150px'
+                        width="150px"
                       />
                     </td>
                     <td>{a.name}</td>
@@ -171,7 +173,7 @@ function Cart(props) {
                     <td>
                       {' '}
                       <button
-                        className='btn btn-default'
+                        className="btn btn-default"
                         style={amountBtnStyle}
                         onClick={() => {
                           increaseData(a);
@@ -181,7 +183,7 @@ function Cart(props) {
                       </button>
                       {a.quan}
                       <button
-                        className='btn btn-default'
+                        className="btn btn-default"
                         style={amountBtnStyle}
                         onClick={() => {
                           decreaseData(a);
@@ -193,7 +195,7 @@ function Cart(props) {
                     <td>무료</td>
                     <td>
                       <button
-                        className='btn btn-default'
+                        className="btn btn-default"
                         style={amountBtnStyle}
                         onClick={() => {
                           deleteData(a);
@@ -207,36 +209,36 @@ function Cart(props) {
               })}
             </tbody>
           </Table>
-          <div id='orderWrapper'>
+          <div id="orderWrapper">
             <h1 style={orderTitleStyle}>주문합계</h1>
-            <div className='orderTable'>
-              <div className='priceWrapper'>
+            <div className="orderTable">
+              <div className="priceWrapper">
                 <h3>결제예정금액</h3>
                 <h3>{`${addComma(sum)}원`}</h3>
               </div>
-              <div className='priceWrapper'>
+              <div className="priceWrapper">
                 <p>상품금액 합계</p>
                 <p>{` ${addComma(sum)}원`}</p>
               </div>
-              <div className='priceWrapper'>
+              <div className="priceWrapper">
                 <p>배송비 합계</p>
                 <p> + 0원</p>
               </div>
 
-              <button className='btn-primary opacity' style={orderBtnStyle}>
+              <button className="btn-primary opacity" style={orderBtnStyle}>
                 {`총 ${addComma(sum)}원 주문하기`}
               </button>
             </div>
           </div>
         </div>
       ) : (
-        <div id='noticeWrapper'>
-          <img className='noticeImg' src={notice} />
-          <p className='notice'>장바구니가 비어있습니다.</p>
+        <div id="noticeWrapper">
+          <img className="noticeImg" src={notice} />
+          <p className="notice">장바구니가 비어있습니다.</p>
         </div>
       )}
       {props.alert열렸니 ? (
-        <div className='my-alert'>
+        <div className="my-alert">
           <p>지금 구매하시면 20% 할인</p>
           <button
             onClick={() => {
